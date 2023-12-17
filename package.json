@@ -1,0 +1,51 @@
+{
+  "name": "netlify-redirects",
+  "publisher": "sissel",
+  "displayName": "Netlify Redirects",
+  "description": "Syntax highlighting support for the Netlify _redirects file",
+  "version": "0.0.1",
+  "author": "Νίκος Σαβίδης <n.savvidis@gmx.com>",
+  "license": "MIT",
+  "keywords": [
+    "netlify",
+    "syntax",
+    "redirects"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panoply/vscode-netlify-redirects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/panoply/vscode-netlify-redirects/issues"
+  },
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "scripts": {
+    "build": "vsce package --no-dependencies"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "redirects",
+        "aliases": [
+          "Netlify Redirects"
+        ],
+        "filenames": [
+          "_redirects"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "redirects",
+        "path": "./syntax/redirects.tmLanguage.json",
+        "scopeName": "source.redirects"
+      }
+    ]
+  }
+}

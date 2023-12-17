@@ -1,0 +1,87 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.redirects",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#uri"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.line.redirects",
+      "begin": "\\#",
+      "end": "\\Z"
+    },
+    "uri": {
+      "name": "meta.uri.redirects",
+      "begin": "^(\\/|https?|www)",
+      "end": "\\Z",
+      "patterns": [
+        {
+          "include": "#splat"
+        },
+        {
+          "include": "#wildcard"
+        },
+        {
+          "include": "#query-parameters"
+        },
+        {
+          "include": "#status-code"
+        }
+      ]
+    },
+    "wildcard": {
+      "name": "string.other.redirects",
+      "match": "(?<=\\/)(\\*)"
+    },
+    "splat": {
+      "name": "markup.italic",
+      "match": "(?<=[\\/=])(\\:)(\\w+)(?=(?:[ \\t\\/]|\\Z))",
+      "captures": {
+        "1": {
+          "name": "markup.splat.colon.redirects"
+        },
+        "2": {
+          "name": "markup.splat.redirects"
+        }
+      }
+    },
+    "status-code": {
+      "name": "markup.bold",
+      "match": "(?<=[ \\t])([0-9]{3})(\\!)?",
+      "captures": {
+        "1": {
+          "name": "constant.numeric.redirects"
+        },
+        "2": {
+          "name": "keyword.control.redirects"
+        }
+      }
+    },
+    "query-parameters": {
+      "name": "entity.name.method.redirects",
+      "begin": "(?<=[ \\t])(\\w+)(\\=)",
+      "end": "[ \\t]",
+      "captures": {
+        "1": {
+          "name": "variable.parameter.redirects"
+        },
+        "2": {
+          "name": "keyword.control.redirects"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#splat"
+        },
+        {
+          "include": "#query-parameters"
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,7 @@
   "version": "0.0.1",
   "author": "Νίκος Σαβίδης <n.savvidis@gmx.com>",
   "license": "MIT",
+  "icon": "logo.png",
   "keywords": [
     "netlify",
     "syntax",

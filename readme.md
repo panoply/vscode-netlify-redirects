@@ -1,3 +1,3 @@
 # Netlify Redirects
 
-Language support from Netlify `_redirects` files.
+Language support for Netlify `_redirects` files. Applies basic grammars for syntax enhancements.
